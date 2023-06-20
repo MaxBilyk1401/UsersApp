@@ -18,7 +18,10 @@ final class UsersCollectionViewController: UICollectionViewController {
     }
     
     init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        let flow = UICollectionViewFlowLayout()
+        flow.minimumLineSpacing = 16.0
+        flow.minimumInteritemSpacing = 16.0
+        super.init(collectionViewLayout: flow)
     }
     
     required init?(coder: NSCoder) {
@@ -70,7 +73,7 @@ extension UsersCollectionViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         let width = (UIScreen.main.bounds.width - 48) / 2
-        let height = width / 163 * 192
+        let height = width / 193 * 305
         return CGSize(width: width, height: height)
     }
 }

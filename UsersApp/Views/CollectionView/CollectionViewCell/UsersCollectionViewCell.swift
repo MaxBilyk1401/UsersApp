@@ -33,6 +33,9 @@ final class UsersCollectionViewCell: UICollectionViewCell {
             genderIcon = UIImage(named: "Female")
         }
         genderImage.image = genderIcon
+        iconImageView.image = nil
+        iconImageView.setImage(with: user.avatar)
+        iconImageView.layer.cornerRadius = min(iconImageView.frame.width, iconImageView.frame.height) / 2
     }
     
     private func setupLayout() {

@@ -8,7 +8,7 @@
 import UIKit
 
 final class CombinedViewController: UIViewController {
-    var viewModel = UsersViewModel()
+    var viewModel = UserViewModel()
     private var list = [UserModel]()
     private var gridViewController: UsersCollectionViewController!
     private var tableViewController: UsersTableViewController!
@@ -20,13 +20,14 @@ final class CombinedViewController: UIViewController {
     private var headerLabel: UILabel!
     private var filterButton: UIButton!
     private var settingsButton: UIButton!
+    private var isTableViewMode = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupHeaderLabel()
         setupButtons()
-//        setupSwitchControll()
+        isTableViewMode.toggle()
         setupWrapView()
         setupScrollView()
         setupInnerScrollView()
@@ -52,7 +53,7 @@ final class CombinedViewController: UIViewController {
             self.tableViewController.showLoading(isLoading)
         }
         
-        viewModel.onRefreshList = { [weak self] list in
+        viewModel.onSuccess = { [weak self] list in
             guard let self else { return }
             self.gridViewController.displayUsers(list)
             self.tableViewController.displayUsers(list)
@@ -82,14 +83,20 @@ final class CombinedViewController: UIViewController {
     private func setupButtons() {
         filterButton = UIButton()
         filterButton.backgroundColor = .clear
-        filterButton.setImage(UIImage(systemName: "line.3.horizontal.decrease"), for: .normal)
+        filterButton.setImage(UIImage(systemName: "line.3.horizontal.decrease"),
+                              for: .normal)
         filterButton.tintColor = .black
-        filterButton.addTarget(self, action: #selector(showFilters), for: .touchUpInside)
         
         settingsButton = UIButton()
-        settingsButton.backgroundColor = .clear
-        settingsButton.setImage(UIImage(systemName: "gear"), for: .normal)
+        settingsButton.backgroundColor = UIColor(named: "backgroundButtonColor")
         settingsButton.tintColor = .black
+        settingsButton.layer.cornerRadius = 12
+        settingsButton.layer.borderWidth = 1.50
+        settingsButton.layer.borderColor = UIColor(named: "borderButtonColor")?.cgColor
+        settingsButton.setImage(UIImage(systemName: "square.grid.2x2"), for: .normal)
+        settingsButton.addTarget(self,
+                                 action: #selector(viewModeButtonTapped),
+                                 for: .touchUpInside)
         
         view.addSubview(filterButton)
         view.addSubview(settingsButton)
@@ -98,29 +105,21 @@ final class CombinedViewController: UIViewController {
         NSLayoutConstraint.activate([
             settingsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            settingsButton.widthAnchor.constraint(equalToConstant: 48),
+            settingsButton.heightAnchor.constraint(equalToConstant: 48),
             filterButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            filterButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -16)
+            filterButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -16),
+            filterButton.widthAnchor.constraint(equalToConstant: 48),
+            filterButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
-    
-//    private func setupSwitchControll() {
-//        switchControl = UISwitch()
-//        switchControl.addTarget(self, action: #selector(onSwitchControlChange), for: .valueChanged)
-//        switchControl.translatesAutoresizingMaskIntoConstraints = false
-//        switchControl.isOn = true
-//        view.addSubview(switchControl)
-//        NSLayoutConstraint.activate([
-//            switchControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16.0),
-//            switchControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-//        ])
-//    }
     
     private func setupWrapView() {
         wrap = UIView()
         wrap.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(wrap)
         NSLayoutConstraint.activate([
-            wrap.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            wrap.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             wrap.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             wrap.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 16),
             wrap.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -196,12 +195,21 @@ final class CombinedViewController: UIViewController {
         
     }
     
-    @objc private func showFilters(sender: UIButton) {
-        let alertController = UIAlertController(title: "Sortings", message: "s", preferredStyle: .actionSheet)
-    }
+//    @objc private func showFilters(sender: UIButton) {
+//        let alertController = UIAlertController(title: "Sortings", message: "s", preferredStyle: .actionSheet)
+//    }
     
-    @objc private func onSwitchControlChange(sender: UISwitch) {
-        let activePage = sender.isOn ? 0 : 1
-        scrollView.setContentOffset(.init(x: CGFloat(activePage) * UIScreen.main.bounds.width, y: 0.0), animated: true)
+    @objc private func viewModeButtonTapped(sender: UIButton) {
+        isTableViewMode.toggle()
+        scrollView.setContentOffset(.init(x: CGFloat(isTableViewMode ? 0 : 1) * UIScreen.main.bounds.width,
+                                          y: 0.0),
+                                    animated: true)
+        if isTableViewMode {
+            settingsButton.setImage(UIImage(systemName: "square.grid.2x2"),
+                                    for: .normal)
+        } else {
+            settingsButton.setImage(UIImage(systemName: "tablecells"),
+                                    for: .normal)
+        }
     }
 }

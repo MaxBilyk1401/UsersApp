@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,11 +19,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="210" height="261"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtL-b2-VTJ">
-                        <rect key="frame" x="8" y="2" width="194" height="97.666666666666671"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtL-b2-VTJ">
+                        <rect key="frame" x="80" y="8" width="50" height="50"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="WfP-qz-7m0"/>
+                            <constraint firstAttribute="height" constant="50" id="sQH-L0-ECm"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpe-ev-yJU">
-                        <rect key="frame" x="16" y="107.66666666666667" width="178" height="20.333333333333329"/>
+                        <rect key="frame" x="16" y="66" width="178" height="62"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="aS9-dK-hCV"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -76,18 +85,17 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="NtL-b2-VTJ" secondAttribute="trailing" constant="8" id="2xK-TL-AuJ"/>
                 <constraint firstItem="ih8-w7-CXj" firstAttribute="top" secondItem="wpe-ev-yJU" secondAttribute="bottom" constant="12" id="3lI-1V-7c3"/>
                 <constraint firstItem="p4j-4v-YKa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="8pW-ho-aBx"/>
                 <constraint firstItem="V1q-Ic-46T" firstAttribute="leading" secondItem="p4j-4v-YKa" secondAttribute="trailing" constant="12" id="Cdl-Tv-AHO"/>
                 <constraint firstItem="Etz-rt-JMO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Qq0-Xe-Ouk"/>
                 <constraint firstItem="Etz-rt-JMO" firstAttribute="top" secondItem="V1q-Ic-46T" secondAttribute="bottom" constant="12" id="Rl6-qp-bbb"/>
-                <constraint firstItem="NtL-b2-VTJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Vrh-BL-UUp"/>
+                <constraint firstItem="NtL-b2-VTJ" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="VQq-T0-wpO"/>
                 <constraint firstItem="p4j-4v-YKa" firstAttribute="top" secondItem="ih8-w7-CXj" secondAttribute="bottom" constant="12" id="eiY-sQ-Mvh"/>
                 <constraint firstItem="s44-f3-maQ" firstAttribute="leading" secondItem="ih8-w7-CXj" secondAttribute="trailing" constant="12" id="kMU-GP-6tU"/>
                 <constraint firstAttribute="bottom" secondItem="p4j-4v-YKa" secondAttribute="bottom" constant="77" id="oJX-3x-csY"/>
                 <constraint firstAttribute="bottom" secondItem="Etz-rt-JMO" secondAttribute="bottom" constant="16" id="oQd-5D-BZy"/>
-                <constraint firstItem="NtL-b2-VTJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="qJO-1E-3dQ"/>
+                <constraint firstItem="NtL-b2-VTJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="qJO-1E-3dQ"/>
                 <constraint firstItem="V1q-Ic-46T" firstAttribute="centerX" secondItem="s44-f3-maQ" secondAttribute="centerX" id="sxV-jV-zES"/>
                 <constraint firstItem="ih8-w7-CXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="uA3-6L-Kok"/>
                 <constraint firstItem="wpe-ev-yJU" firstAttribute="top" secondItem="NtL-b2-VTJ" secondAttribute="bottom" constant="8" id="v29-AL-vuN"/>
@@ -111,5 +119,8 @@
     <resources>
         <image name="Date" width="32" height="32"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

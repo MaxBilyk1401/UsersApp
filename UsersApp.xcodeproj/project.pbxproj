@@ -25,6 +25,7 @@
 		9DE7ED3A2A37E1A100082670 /* UsersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE7ED382A37E1A100082670 /* UsersCollectionViewCell.xib */; };
 		9DE7ED3C2A39E58B00082670 /* CombinedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ED3B2A39E58B00082670 /* CombinedViewController.swift */; };
 		9DE7ED3E2A3CEBE600082670 /* GridViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ED3D2A3CEBE600082670 /* GridViewProtocol.swift */; };
+		9DE7ED442A42092D00082670 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ED432A42092D00082670 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		9DE7ED382A37E1A100082670 /* UsersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersCollectionViewCell.xib; sourceTree = "<group>"; };
 		9DE7ED3B2A39E58B00082670 /* CombinedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedViewController.swift; sourceTree = "<group>"; };
 		9DE7ED3D2A3CEBE600082670 /* GridViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewProtocol.swift; sourceTree = "<group>"; };
+		9DE7ED432A42092D00082670 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		BC1F33EAE9AF6FFC998966E2 /* Pods_UsersApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6325BDE5176530A37EC9AC9 /* Pods-UsersApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersApp.debug.xcconfig"; path = "Target Support Files/Pods-UsersApp/Pods-UsersApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		9DE7ED022A34EFBA00082670 /* UsersApp */ = {
 			isa = PBXGroup;
 			children = (
+				9DE7ED422A42091F00082670 /* Extensions */,
 				9DE7ED032A34EFBA00082670 /* AppDelegate.swift */,
 				9DE7ED052A34EFBA00082670 /* SceneDelegate.swift */,
 				9DE7ED1A2A3506A400082670 /* Model */,
@@ -161,6 +164,14 @@
 				9DE7ED302A37DF9B00082670 /* CollectionViewCell */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		9DE7ED422A42091F00082670 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DE7ED432A42092D00082670 /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CE22A596BACEB0E8B753DE3E /* Frameworks */ = {
@@ -340,6 +351,7 @@
 				9DE7ED082A34EFBA00082670 /* UsersTableViewController.swift in Sources */,
 				9DE7ED2C2A37651D00082670 /* UserTableViewCell.swift in Sources */,
 				9DE7ED042A34EFBA00082670 /* AppDelegate.swift in Sources */,
+				9DE7ED442A42092D00082670 /* UIImage+Extensions.swift in Sources */,
 				9DE7ED1E2A35080500082670 /* UserModel.swift in Sources */,
 				9DE7ED222A35086E00082670 /* NetworkingManager.swift in Sources */,
 				9DE7ED282A375D1B00082670 /* UserUIComposer.swift in Sources */,
