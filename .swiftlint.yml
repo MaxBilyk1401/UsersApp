@@ -7,9 +7,11 @@ disabled_rules:
   - unneeded_parentheses_in_closure_argument
   - pattern_matching_keywords
   - trailing_closure
+  - attributes
   - force_cast
   - unused_optional_binding
   - force_unwrapping
+  - vertical_parameter_alignment
 opt_in_rules:
   - attributes
   - closure_end_indentation
