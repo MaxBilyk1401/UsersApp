@@ -73,7 +73,7 @@ extension UsersCollectionViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         let width = (UIScreen.main.bounds.width - 48) / 2
-        let height = width / 193 * 305
+        let height = width / 193 * 270
         return CGSize(width: width, height: height)
     }
 }

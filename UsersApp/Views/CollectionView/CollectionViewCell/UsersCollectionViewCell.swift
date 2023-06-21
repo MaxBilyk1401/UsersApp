@@ -8,12 +8,12 @@
 import UIKit
 
 final class UsersCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak private var firstNameLabel: UILabel!
-    @IBOutlet weak private var ageLabel: UILabel!
-    @IBOutlet weak private var genderLabel: UILabel!
-    @IBOutlet weak private var iconImageView: UIImageView!
-    @IBOutlet weak private var detailsButton: UIButton!
-    @IBOutlet weak private var genderImage: UIImageView!
+    @IBOutlet private weak var firstNameLabel: UILabel!
+    @IBOutlet private weak var ageLabel: UILabel!
+    @IBOutlet private weak var genderLabel: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var detailsButton: UIButton!
+    @IBOutlet private weak var genderImage: UIImageView!
     private var list = [UserModel]()
     
     override func awakeFromNib() {
@@ -23,7 +23,7 @@ final class UsersCollectionViewCell: UICollectionViewCell {
     
     func setup(with user: UserModel) {
         firstNameLabel.text = "\(user.firstName)  \(user.lastName)"
-        ageLabel.text = String(user.age)
+        ageLabel.text = "\(user.age) y.o."
         genderLabel.text = String(user.gender.title)
         
         let genderIcon: UIImage?
@@ -48,6 +48,6 @@ final class UsersCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.10
         layer.shadowRadius = 8
         layer.masksToBounds = false
-        detailsButton.layer.cornerRadius = 20.0
+        detailsButton.layer.cornerRadius = 16.0
     }
 }
