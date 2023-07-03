@@ -21,3 +21,13 @@ struct UserModel: Decodable {
         case gender, avatar, age
     }
 }
+
+enum Sorting {
+    case all
+    case age(AgeModel)
+}
+
+enum Filter {
+    case all
+    case gender(GenderModel)
+}

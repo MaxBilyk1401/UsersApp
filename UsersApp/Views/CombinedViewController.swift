@@ -8,8 +8,8 @@
 import UIKit
 
 final class CombinedViewController: UIViewController {
-    var viewModel = UserViewModel()
-    private var list = [UserModel]()
+    var viewModel: UserViewModel!
+    var list = [UserModel]()
     private var gridViewController: UsersCollectionViewController!
     private var tableViewController: UsersTableViewController!
     private var scrollView: UIScrollView!
@@ -82,10 +82,15 @@ final class CombinedViewController: UIViewController {
     
     private func setupButtons() {
         filterButton = UIButton()
-        filterButton.backgroundColor = .clear
+        filterButton.backgroundColor = UIColor(named: "backgroundButtonColor")
+        filterButton.tintColor = .black
+        filterButton.layer.cornerRadius = 12
+        filterButton.layer.borderWidth = 1.50
+        filterButton.layer.borderColor = UIColor(named: "borderButtonColor")?.cgColor
         filterButton.setImage(UIImage(systemName: "line.3.horizontal.decrease"),
                               for: .normal)
         filterButton.tintColor = .black
+        filterButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         
         settingsButton = UIButton()
         settingsButton.backgroundColor = UIColor(named: "backgroundButtonColor")
@@ -192,12 +197,7 @@ final class CombinedViewController: UIViewController {
         
         gridViewController.didMove(toParent: self)
         tableViewController.didMove(toParent: self)
-        
     }
-    
-//    @objc private func showFilters(sender: UIButton) {
-//        let alertController = UIAlertController(title: "Sortings", message: "s", preferredStyle: .actionSheet)
-//    }
     
     @objc private func viewModeButtonTapped(sender: UIButton) {
         isTableViewMode.toggle()
@@ -211,5 +211,20 @@ final class CombinedViewController: UIViewController {
             settingsButton.setImage(UIImage(systemName: "tablecells"),
                                     for: .normal)
         }
+    }
+    
+    @objc private func filterButtonTapped(sender: UIButton) {
+        let VC = FilterUIComposer.build(
+            selectedFilter: viewModel.filter,
+            selectedSorting: viewModel.sorting,
+            onFiltersChange: { [weak self] filter, sorting in
+                guard let self else { return }
+                self.viewModel.changeParameters(filter: filter, sorting: sorting)
+                self.navigationController?.presentedViewController?.dismiss(animated: true)
+            }
+        )
+        
+        let navVC = UINavigationController(rootViewController: VC)
+        self.navigationController?.present(navVC, animated: true)
     }
 }

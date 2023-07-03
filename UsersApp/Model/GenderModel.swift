@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GenderModel: String, CodingKey, Decodable {
+enum GenderModel: String, CodingKey, Decodable, CaseIterable {
     case female = "F"
     case male = "M"
     

@@ -11,6 +11,8 @@ class UserViewModel {
     var onLoading: ((Bool) -> Void)?
     var onSuccess: (([UserModel]) -> Void)?
     var onFailure: ((String?) -> Void)?
+    var filter: Filter = .all
+    var sorting: Sorting = .all
     
     func fetchData() {
         onLoading?(true)
@@ -21,13 +23,17 @@ class UserViewModel {
                 switch result {
                 case .success(let success):
                     self.onSuccess?(success)
-                    print(success)
                 case .failure:
                     self.onFailure?("Oops, something went wrong!")
                 }
                 self.onLoading?(false)
             }
         }
+    }
+    
+    func changeParameters(filter: Filter, sorting: Sorting) {
+        self.filter = filter
+        self.sorting = sorting
     }
 }
 

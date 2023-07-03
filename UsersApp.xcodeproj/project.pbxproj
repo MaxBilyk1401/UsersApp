@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3C389F7D1E86C76CF371E473 /* Pods_UsersApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1F33EAE9AF6FFC998966E2 /* Pods_UsersApp.framework */; };
+		9D3276CC2A4867A50071F6A7 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3276CB2A4867A50071F6A7 /* FilterViewModel.swift */; };
+		9D3276CE2A4867AE0071F6A7 /* FilterUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3276CD2A4867AE0071F6A7 /* FilterUIComposer.swift */; };
+		9D3276D02A4869460071F6A7 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3276CF2A4869460071F6A7 /* FilterViewController.swift */; };
+		9D3276D22A4B25640071F6A7 /* AgeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3276D12A4B25640071F6A7 /* AgeModel.swift */; };
 		9DE7ED042A34EFBA00082670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ED032A34EFBA00082670 /* AppDelegate.swift */; };
 		9DE7ED062A34EFBA00082670 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ED052A34EFBA00082670 /* SceneDelegate.swift */; };
 		9DE7ED082A34EFBA00082670 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ED072A34EFBA00082670 /* UsersTableViewController.swift */; };
@@ -30,6 +34,10 @@
 
 /* Begin PBXFileReference section */
 		03F1B4CCA1DE5967D467BF55 /* Pods-UsersApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersApp.release.xcconfig"; path = "Target Support Files/Pods-UsersApp/Pods-UsersApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D3276CB2A4867A50071F6A7 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		9D3276CD2A4867AE0071F6A7 /* FilterUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterUIComposer.swift; sourceTree = "<group>"; };
+		9D3276CF2A4869460071F6A7 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		9D3276D12A4B25640071F6A7 /* AgeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeModel.swift; sourceTree = "<group>"; };
 		9DE7ED002A34EFBA00082670 /* UsersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE7ED032A34EFBA00082670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DE7ED052A34EFBA00082670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +74,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D3276C82A48614A0071F6A7 /* FilterController */ = {
+			isa = PBXGroup;
+			children = (
+				9D3276CB2A4867A50071F6A7 /* FilterViewModel.swift */,
+				9D3276CF2A4869460071F6A7 /* FilterViewController.swift */,
+				9D3276CD2A4867AE0071F6A7 /* FilterUIComposer.swift */,
+			);
+			path = FilterController;
+			sourceTree = "<group>";
+		};
 		9DE7ECF72A34EFB900082670 = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +121,10 @@
 		9DE7ED192A35068800082670 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9DE7ED1D2A35080500082670 /* UserModel.swift */,
+				9DE7ED272A375D1B00082670 /* UserUIComposer.swift */,
+				9DE7ED232A350A2B00082670 /* UserVeiwModel.swift */,
+				9DE7ED212A35086E00082670 /* NetworkingManager.swift */,
 				9DE7ED3D2A3CEBE600082670 /* GridViewProtocol.swift */,
-				9DE7ED252A3750B200082670 /* GenderModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,9 +132,9 @@
 		9DE7ED1A2A3506A400082670 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9DE7ED212A35086E00082670 /* NetworkingManager.swift */,
-				9DE7ED232A350A2B00082670 /* UserVeiwModel.swift */,
-				9DE7ED272A375D1B00082670 /* UserUIComposer.swift */,
+				9DE7ED1D2A35080500082670 /* UserModel.swift */,
+				9DE7ED252A3750B200082670 /* GenderModel.swift */,
+				9D3276D12A4B25640071F6A7 /* AgeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				9DE7ED3B2A39E58B00082670 /* CombinedViewController.swift */,
+				9D3276C82A48614A0071F6A7 /* FilterController */,
 				9DE7ED362A37DFD700082670 /* CollectionView */,
 				9DE7ED352A37DFC200082670 /* UsersTableView */,
 			);
@@ -350,6 +370,8 @@
 			files = (
 				9DE7ED082A34EFBA00082670 /* UsersTableViewController.swift in Sources */,
 				9DE7ED2C2A37651D00082670 /* UserTableViewCell.swift in Sources */,
+				9D3276CC2A4867A50071F6A7 /* FilterViewModel.swift in Sources */,
+				9D3276D02A4869460071F6A7 /* FilterViewController.swift in Sources */,
 				9DE7ED042A34EFBA00082670 /* AppDelegate.swift in Sources */,
 				9DE7ED442A42092D00082670 /* UIImage+Extensions.swift in Sources */,
 				9DE7ED1E2A35080500082670 /* UserModel.swift in Sources */,
@@ -357,11 +379,13 @@
 				9DE7ED282A375D1B00082670 /* UserUIComposer.swift in Sources */,
 				9DE7ED062A34EFBA00082670 /* SceneDelegate.swift in Sources */,
 				9DE7ED2F2A37DE0900082670 /* UsersCollectionViewController.swift in Sources */,
+				9D3276D22A4B25640071F6A7 /* AgeModel.swift in Sources */,
 				9DE7ED3E2A3CEBE600082670 /* GridViewProtocol.swift in Sources */,
 				9DE7ED242A350A2B00082670 /* UserVeiwModel.swift in Sources */,
 				9DE7ED392A37E1A100082670 /* UsersCollectionViewCell.swift in Sources */,
 				9DE7ED262A3750B200082670 /* GenderModel.swift in Sources */,
 				9DE7ED3C2A39E58B00082670 /* CombinedViewController.swift in Sources */,
+				9D3276CE2A4867AE0071F6A7 /* FilterUIComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

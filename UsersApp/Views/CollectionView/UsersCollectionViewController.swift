@@ -102,33 +102,3 @@ extension UsersCollectionViewController: GridViewProtocol {
         }
     }
 }
-
-/*
- //    private func bindOnViewModel() {
- //        viewModel.onLoading = { [weak self] isLoading in
- //            guard let self else { return }
- //            if isLoading {
- //                self.collectionView.refreshControl?.beginRefreshing()
- //            } else {
- //                self.collectionView.refreshControl?.endRefreshing()
- //            }
- //        }
- //
- //        viewModel.onSuccess = { [weak self] list in
- //            guard let self else { return }
- //            self.list = list
- //            self.collectionView.reloadData()
- //        }
- //
- //        viewModel.onFailure = { [weak self] failure in
- //            guard let self else { return }
- //            guard let failure else { return }
- //            let alert = UIAlertController(title: String(failure),
- //                                          message: nil,
- //                                          preferredStyle: .alert)
- //            alert.addAction(UIAlertAction(title: "OK",
- //                                          style: .cancel))
- //            present(alert, animated: true)
- //        }
- //    }
- */
